@@ -1,0 +1,92 @@
+body	{
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: rgb(11, 85, 104);
+}
+
+.call-btn {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: rgb(235, 165, 35);
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	color : #fff;
+	transition: all .3s linear;
+}
+.call-btn:hover {
+	background-color: rgb(255, 138, 4);
+	transition: all .3s linear;
+	transform: scale(1.08);
+}
+.call-btn:hover::before,
+.call-btn:hover:after {
+	content: '';
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	bottom: -20px;
+	left: -20px;
+	border: 1px solid rgb(253, 184, 54);
+	border-radius: 50%;
+	animation-name: pulse;
+	animation-duration: 2.2s;
+	animation-iteration-count: infinite;
+	box-shadow: 0px 0px 7px 0px orange;
+	opacity: 0;
+}
+.call-btn::after {
+	animation-delay: .3s;
+}
+.call-btn i {
+	font-size: 30px;
+	line-height: 72px;
+	opacity: 1;
+	transition-duration: .3s;
+	animation-name: phone;
+	animation-duration: 1.8s;
+	animation-iteration-count: infinite;
+}
+.call-btn span {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	transform: scaleX(-1);
+	transition-duration: .5s;
+	opacity: 0;
+}
+.call-btn:hover span {
+	transition-duration: .5s;
+	transform: scaleX(1);
+	opacity: 1;
+}
+.call-btn:hover i {
+	transition-duration: .3s;
+	opacity: 0;
+}
+
+@keyframes phone {
+	0%,100%{
+		transform: rotate(25deg);
+	}
+	50% {
+		transform: rotate(-15deg);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
